@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -7,20 +8,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="385.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Model.View.RootLayoutController">
+<AnchorPane prefHeight="385.0" prefWidth="604.0" styleClass="backgroundColor" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Model.View.RootLayoutController">
    <children>
-      <TextField layoutX="102.0" layoutY="33.0" prefHeight="43.0" prefWidth="332.0" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="33.0" />
-      <Button layoutX="468.0" layoutY="33.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="84.0" style="-fx-background-color: #43A047; -fx-text-fill: white; -fx-background-radius: 0;" text="Search" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="33.0">
+      <TextField layoutX="102.0" layoutY="33.0" prefHeight="43.0" prefWidth="332.0" styleClass="textField" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="33.0" />
+      <Button layoutX="468.0" layoutY="33.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="84.0" styleClass="buttonPrincipalStyle" text="Search" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="33.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <effect>
             <DropShadow color="#00000063" height="10.0" offsetX="4.0" offsetY="4.0" radius="4.5" width="10.0" />
          </effect>
+         <font>
+            <Font size="17.0" />
+         </font>
       </Button>
       <ScrollPane hbarPolicy="NEVER" layoutX="76.0" layoutY="193.0" maxWidth="606.0" prefHeight="200.0" prefWidth="446.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="82.0">
          <content>
-            <VBox fx:id="vbox" />
+            <VBox fx:id="vbox">
+               <children>
+                  <Label styleClass="labelSearch" text="pew pew" />
+                  <Label styleClass="labelSearch" text="El otro juego queno me viene el nombre" />
+               </children></VBox>
          </content></ScrollPane>
    </children>
 </AnchorPane>

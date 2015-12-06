@@ -18,7 +18,7 @@ public class RootLayoutController {
 	
 	}
 	/**
-	 * Devuelve el VBox de javafx en el se guardaran los label con
+	 * Devuelve un VBox de javafx en el se guardaran los label con
 	 * los nombres de los videojuegos referentes al que has buscado
 	 * @return vbox donde almacenar las label de los nombres de los juegos
 	 */

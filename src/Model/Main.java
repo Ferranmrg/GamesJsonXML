@@ -56,6 +56,7 @@ public class Main extends Application {
         
         //pasar metodos de controler de esta clase
         // no funciona because reasons
+        // this no esta cogiendo la clase bien (?)
         //rootController.setMain(null);
 
         primaryStage.show();
