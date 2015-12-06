@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 
 public class RootLayoutController {
+	@FXML
 	private VBox vbox;
 	
 	/**
