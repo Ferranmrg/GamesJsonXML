@@ -1,5 +1,12 @@
 package Model;
 
+/**
+ * 
+ * @author Pedro
+ * 
+ *         Game object, just contains the name and id
+ *
+ */
 public class Game {
 	private String name;
 	private long id;

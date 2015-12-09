@@ -15,6 +15,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -58,15 +61,18 @@ public class Parser {
 			JSONObject root = (JSONObject) jsonParser.parse(responseData);
 
 			JSONArray posts = (JSONArray) root.get("games");
-
+			
+			// ----Values we get to show------
 			al = new ArrayList<Game>();
 			for (int i = 0; i < posts.size(); i++) {
 				JSONObject jsonPost = (JSONObject) posts.get(i);
+				// Put them into a new Game object
 				Game game = new Game();
 				game.setName((String) jsonPost.get("name"));
 				game.setId((long) jsonPost.get("id"));
+				// add to the list for the return
 				al.add(game);
-
+			// ---------------------------------
 			}
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -105,11 +111,13 @@ public class Parser {
 			String responseData = responseStrBuilder.toString();
 			JSONParser jsonParser = new JSONParser();
 			JSONObject root = (JSONObject) jsonParser.parse(responseData);
-
 			JSONObject game = (JSONObject) root.get("game");
-
+			
+		
+			
 			al = new ArrayList<String>();
-
+			
+			// ---Values we get to show-----
 			al.add((String) game.get("name"));
 			al.add((String) game.get("release_date"));
 			al.add((String) game.get("summary"));
@@ -119,7 +127,7 @@ public class Parser {
 				JSONObject gen = (JSONObject) genres.get(i);
 				al.add((String) gen.get("name"));
 			}
-			
+			//-----------------------------
 
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block

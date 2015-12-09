@@ -22,8 +22,9 @@ public class Main extends Application {
 	private VBox vbox;
 	private TextField txtGame;
 
-	/*
-	 * se ejecuta al empezar y inicia el metodo initScene()
+	/**
+	 * @author Pedro
+	 * Starts at begining and calls the method initScene()
 	 * 
 	 * @see initScene()
 	 */
@@ -37,7 +38,8 @@ public class Main extends Application {
 	}
 
 	/**
-	 * Inicia la escena y crea el stage con el rootLayout cargado
+	 * @author Pedro
+	 * Init the scene and set the stage with the RootLayoutLiaded
 	 * 
 	 * @see RootLayoutController
 	 */

@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public interface ParserInterface {
 	/**
 	 * 
@@ -10,4 +12,14 @@ public interface ParserInterface {
 	 *            given name
 	 */
 	public void getListName(String GameName);
+	
+	/**
+	 * 
+	 * @author Ferran
+	 * @param gameId
+	 * @return
+	 * 
+	 * Return the info of the selected game in the list
+	 */
+	public ArrayList<String> getGame(long gameId);
 }

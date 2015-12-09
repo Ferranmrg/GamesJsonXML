@@ -8,8 +8,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
+import Model.FileXml;
 import Model.Game;
 import Model.Main;
 import Model.Parser;
@@ -32,6 +39,12 @@ public class RootLayoutController {
 
 	}
 
+	/**
+	 * @author Pedro
+	 * 
+	 *         Handling the search, we write the name of the game, and get a
+	 *         list with all the games that contains the given word(s)
+	 */
 	@FXML
 	public void handleSearch() {
 		main = new Main();
@@ -55,14 +68,20 @@ public class RootLayoutController {
 		this.parser = parser;
 	}
 
+	/**
+	 * @author Ferran,Pedro
+	 * @param game
+	 *            this method will handle booth search of games, the list with
+	 *            the names, and also the info of the selected game
+	 */
 	public void addGame(Game game) {
-
 		Label nombre = new Label();
 		nombre.setText(game.getName());
 		parser = new Parser(this.main);
 		nombre.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			/**
-			 * Method to Label OnClick
+			 * This method will add the clickable method to the games we're
+			 * adding into the vbox
 			 */
 			@Override
 			public void handle(MouseEvent e) {
@@ -79,13 +98,14 @@ public class RootLayoutController {
 				Button button = new Button("Add to favorites");
 
 				/**
-				 * Button OnClick Event
+				 * @author Javier Button OnClick Event
 				 */
 				button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 					@Override
 					public void handle(MouseEvent event) {
-						System.out.println("PUTA");
+						FileXml fxml = new FileXml();
+						fxml.createXML(game);
 
 					}
 
@@ -94,5 +114,18 @@ public class RootLayoutController {
 			}
 		});
 		vbox.getChildren().add(nombre);
+	}
+
+	/**
+	 * @author Javier 
+	 * Method to show the info of the favorites XML
+	 */
+	public void handleFav() {
+		FileXml fxml = new FileXml();
+		vbox.getChildren().remove(0, vbox.getChildren().size());
+		Label nombre = new Label();
+		nombre.setText(fxml.readXML());
+		vbox.getChildren().add(nombre);
+
 	}
 }
